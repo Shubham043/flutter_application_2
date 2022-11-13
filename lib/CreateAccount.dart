@@ -1,7 +1,7 @@
-// ignore_for_file: unused_import, prefer_const_constructors, file_names, sized_box_for_whitespace, avoid_web_libraries_in_flutter, avoid_print, empty_statements
+// ignore_for_file: unused_import, prefer_const_constructors, file_names, sized_box_for_whitespace, avoid_web_libraries_in_flutter, avoid_print, empty_statements, depend_on_referenced_packages
 
 import 'dart:html' ;
-
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/loginScreen.dart';
 import 'methods.dart';
@@ -99,14 +99,22 @@ onTap: () {
 setState(() {
   isLoading = true;}
 );
+createAccount(_name.text, _email.text, _password.text).then((user){
+  if(user != null){
+setState(() {
+  isLoading = false;
+});
+print("login Successful");
+  }
+});
 }
 else{
     print("please enter");
   };
-  Navigator.push(
-    context,
-    MaterialPageRoute(builder: (context) => LoginScreen()),
-  );
+  // Navigator.push(
+  //   context,
+  //   MaterialPageRoute(builder: (context) => LoginScreen()),
+  // );
 
 },
     child: Container(

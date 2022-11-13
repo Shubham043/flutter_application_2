@@ -1,8 +1,9 @@
 // ignore_for_file: avoid_print, unnecessary_null_comparison, depend_on_referenced_packages, unused_local_variable, no_leading_underscores_for_local_identifiers, non_constant_identifier_names, unused_import
 
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'CreateAccount.dart';
-Future<User?> CreateAccount(String name,String email, String password)async{
+Future<User?> createAccount(String name,String email, String password)async{
 FirebaseAuth _auth = FirebaseAuth.instance;
 
 try{
